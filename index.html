@@ -1,0 +1,190 @@
+<!doctype html>
+<!--
+  This project follows Frontend Mentor-style challenge conventions.
+  Inspired by Frontend Mentor: https://www.frontendmentor.io
+-->
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#5a1cbb" />
+    <meta
+      name="description"
+      content="A comprehensive guide to building bridges with responsive design and interactive features."
+    />
+    <title>Building A Bridge</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to main content</a>
+    <header>
+      <h1>Building A Bridge</h1>
+      <button id="theme-toggle" aria-label="Toggle light/dark theme"></button>
+    </header>
+
+    <nav>
+      <ul class="nav-container">
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#materials">Materials</a></li>
+        <li><a href="#steps">Steps</a></li>
+        <li><a href="#conclusion">Conclusion</a></li>
+      </ul>
+    </nav>
+
+    <main id="main">
+      <section id="introduction">
+        <div class="introduction-container">
+          <h2>Introduction & Fun Design</h2>
+          <p>
+            Building a bridge is a complex engineering task that requires
+            careful planning, design, and construction. This guide will walk you
+            through the basic steps involved in building a bridge
+          </p>
+          <div class="introduction-image-container">
+            <div class="introduction-image-one">
+              <img
+                src="images/Building Bridges.jpeg"
+                alt="Construction site with bridge supports"
+                class="intro-img-main"
+              />
+            </div>
+
+            <div class="introduction-image-two-three">
+              <img
+                src="images/Building BRIDGES2.jpeg"
+                alt="Bridge under construction"
+                class="intro-img-side"
+              />
+              <img
+                src="images/Building Bridges3.jpeg"
+                alt="Completed bridge structure"
+                class="intro-img-side"
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="materials">
+        <h2>Materials</h2>
+        <ul>
+          <li>Concrete</li>
+          <li>Steel</li>
+          <li>Cables</li>
+          <li>Wood</li>
+        </ul>
+      </section>
+
+      <section id="steps">
+        <h2>Steps to Build a Bridge</h2>
+        <ol>
+          <li>Planning and Design</li>
+          <li>Site Preparation</li>
+          <li>Foundation Construction</li>
+          <li>Superstructure Construction</li>
+          <li>Finishing Touches</li>
+        </ol>
+      </section>
+
+      <section id="conclusion">
+        <h2>Conclusion</h2>
+        <p>
+          Building a bridge is a rewarding project that can connect communities
+          and improve transportation. With the right materials, planning, and
+          execution, you can create a sturdy and functional bridge that will
+          last for years to come.
+        </p>
+      </section>
+
+      <section class="cards">
+        <h2>Key Benefits</h2>
+        <div class="cards-grid">
+          <div class="card">
+            <h3>Planning</h3>
+            <p>
+              Careful planning ensures the bridge meets engineering standards
+              and safety requirements.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Materials</h3>
+            <p>
+              Quality materials like steel and concrete provide durability and
+              structural integrity.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Construction</h3>
+            <p>
+              Skilled construction teams execute the design with precision and
+              attention to detail.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Maintenance</h3>
+            <p>
+              Regular maintenance keeps the bridge safe and functional for
+              decades to come.
+            </p>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Building A Bridge. All rights reserved.</p>
+    </footer>
+
+    <script>
+      // theme toggle (light/dark) using CSS variables
+      const toggle = document.getElementById("theme-toggle");
+      const root = document.documentElement;
+      const current = localStorage.getItem("theme") || "light";
+      root.setAttribute("data-theme", current);
+      if (current === "dark") toggle.textContent = "light";
+
+      toggle.addEventListener("click", () => {
+        const theme =
+          root.getAttribute("data-theme") === "light" ? "dark" : "light";
+        root.setAttribute("data-theme", theme);
+        localStorage.setItem("theme", theme);
+        toggle.textContent = theme === "dark" ? "light" : "dark";
+      });
+
+      // scroll spy for nav links
+      const sections = document.querySelectorAll("main section[id]");
+      const links = document.querySelectorAll("nav a");
+      const obs = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              links.forEach((l) =>
+                l.classList.toggle(
+                  "active",
+                  l.getAttribute("href") === "#" + entry.target.id,
+                ),
+              );
+            }
+          });
+        },
+        { rootMargin: "-50% 0px -50% 0px" },
+      );
+      sections.forEach((s) => obs.observe(s));
+    </script>
+
+    <script>
+      // Register service worker for PWA support
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker
+          .register("sw.js")
+          .then((registration) => {
+            console.log("Service Worker registered:", registration);
+          })
+          .catch((error) => {
+            console.log("Service Worker registration failed:", error);
+          });
+      }
+    </script>
+  </body>
+</html>
