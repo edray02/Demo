@@ -149,7 +149,7 @@
           root.getAttribute("data-theme") === "light" ? "dark" : "light";
         root.setAttribute("data-theme", theme);
         localStorage.setItem("theme", theme);
-        toggle.textContent = theme === "dark;
+        toggle.textContent = theme === "dark" ? "light" : "dark";
       });
 
       // scroll spy for nav links
