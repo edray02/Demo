@@ -239,8 +239,119 @@ footer {
   --header-bg: #222;
   --header-text: #eee;
 }
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  main {
+    padding: 0.5rem;
+  }
+
+  section {
+    margin-bottom: 1.5rem;
+  }
+
+  /* Introduction section mobile fixes */
+  .introduction-container {
+    padding: 0.5rem;
+  }
+
+  .introduction-image-container {
+    gap: 0.5rem;
+  }
+
+  .intro-img-main,
+  .intro-img-side {
+    max-width: 100%;
+    height: auto;
+  }
+
+  /* Navigation mobile fixes */
+  nav {
+    padding: 0.5rem;
+  }
+
+  .nav-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: stretch;
+  }
+
+  .nav-container li {
+    display: block;
+    text-align: center;
+  }
+
+  nav a {
+    display: block;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+
+  /* General mobile text improvements */
+  h2 {
+    font-size: 1.5rem;
+    line-height: 1.2;
+  }
+
+  p {
+    font-size: 1rem;
+    line-height: 1.5;
+  }
+
+  /* Conclusion section mobile fixes */
+  #conclusion {
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: var(--neutral-bg);
+    border-radius: 8px;
+    margin: 1rem 0;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    clear: both;
+  }
+
+  #conclusion p {
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    line-height: 1.4;
+    margin: 0;
+  }
+
+  /* Ensure proper spacing around conclusion */
+  #conclusion + .cards {
+    margin-top: 2rem;
+  }
+}
+
 .card {
   max-width: 200px;
   min-height: 200px;
   padding: 2rem;
 }
+
+.nav-container {
+  display: flex;
+  justify-content: center;
+  background-color: var(--nav-bg);
+  flex-wrap: wrap;
+}
+
+/* Mobiele view adjustments */
+@media (max-width: 600px) {
+  .nav-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .nav-container li {
+    width: 100%;
+    text-align: center;
+  }
+
+  .nav-container li {
+    margin: 0.5rem 0;
+    width: 100%;
+    text-align: center;
+    }
+  }
