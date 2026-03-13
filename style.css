@@ -50,13 +50,11 @@ header {
 
 nav {
   background-color: var(--nav-bg);
-  padding: 0.75rem;
+  padding: 1rem;
   position: sticky;
   top: 0;
   z-index: 100;
   transition: background-color 0.3s;
-  max-width: 1200px;
-  margin: 0 auto;
 }
 
 .skip-link {
@@ -270,8 +268,6 @@ footer {
   /* Navigation mobile fixes */
   nav {
     padding: 0.5rem;
-    max-width: 100%;
-    margin: 0;
   }
   }
 
